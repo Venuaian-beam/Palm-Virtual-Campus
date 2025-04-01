@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Group Page</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+
+  <style>
+    /* General Body Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Comfortaa', sans-serif; 
+      color: white;
+      overflow: hidden;
+    }
+
+    /* Background Styles */
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      animation: changeBackground 12s infinite;
+      z-index: -1;
+    }
+
+    /* Content Styles */
+    .content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 600px;
+      max-height: 90%;
+      overflow-y: scroll;
+      box-sizing: border-box;
+    }
+
+    /* Go Back Button Style */
+    .back-button {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background-color: #ec0c44;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 100;
+      transition: transform 0.2s ease, background-color 0.3s ease;
+      font-size: 14px;
+    }
+
+    .back-button:hover {
+      background-color: #d40b3d;
+      transform: scale(1.1);
+    }
+
+    /* Input Fields, Select, and Textarea */
+    input,
+    select,
+    textarea {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #058899;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      height: 100px;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #058899;
+      outline: none;
+    }
+
+    /* Buttons */
+    button {
+      background-color: #ec0c44;
+      color: white;
+      padding: 10px 35px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.2s ease, background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #d40b3d;
+      transform: scale(1.1);
+    }
+
+    /* Animation Keyframes */
+    @keyframes changeBackground {
+      0%,
+      100% {
+        background-image: url('images/desk.jpg');
+      }
+
+      33% {
+        background-image: url('images/studying.jpg');
+      }
+
+      66% {
+        background-image: url('images/table.jpg');
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .content {
+        width: 95%;
+        max-width: 100%;
+      }
+
+      .back-button {
+        padding: 8px 15px;
+        font-size: 12px;
+      }
+
+      button {
+        padding: 8px 20px;
+        font-size: 14px;
+      }
+
+      input,
+      select,
+      textarea {
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .content {
+        padding: 15px;
+      }
+
+      h1, h2 {
+        font-size: 20px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="background"></div>
+  <div class="content">
+    <!-- Go Back Button -->
+    <button class="back-button" onclick="goBack()">Go Back</button>
+
+    <h1 id="group-title">Group Name</h1>
+    <p id="group-description-text">Group Description</p>
+
+    <section id="group-meetings">
+      <h2>Host Meetings</h2>
+      <input type="text" id="meeting-link" placeholder="Paste your meeting link here">
+      <button onclick="redirectToMeeting()">Join a Meeting</button>
+    </section>
+
+    <section id="group-notes">
+      <h2>Group Notes</h2>
+      <select id="note-bg-color" onchange="changeNoteBackground()">
+        <option value="#ffffff">White</option>
+        <option value="#f0f8ff">Light Blue</option>
+        <option value="#faebd7">Beige</option>
+        <option value="#f5f5dc">Ivory</option>
+        <option value="#ffebcd">Blanched Almond</option>
+        <option value="green">Green</option>
+      </select>
+      <textarea id="group-notes-text" placeholder="Write group notes here..."></textarea>
+    </section>
+
+    <section id="study-outlines">
+      <h2>Study Outlines</h2>
+      <input type="file" id="study-outline-upload" accept=".pdf,.docx,.txt">
+      <button onclick="uploadStudyOutline()">Upload</button>
+      <div id="uploaded-outlines"></div>
+    </section>
+  </div>
+
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+
+    function changeNoteBackground() {
+      const color = document.getElementById('note-bg-color').value;
+      document.getElementById('group-notes-text').style.backgroundColor = color;
+    }
+
+    function uploadStudyOutline() {
+      const fileInput = document.getElementById('study-outline-upload');
+      const uploadedOutlines = document.getElementById('uploaded-outlines');
+
+      if (fileInput.files.length > 0) {
+        const file = fileInput.files[0];
+        const listItem = document.createElement('p');
+        listItem.textContent = file.name;
+        uploadedOutlines.appendChild(listItem);
+        fileInput.value = '';
+      } else {
+        alert('Please select a file to upload.');
+      }
+    }
+
+    // Function to extract query parameter from URL
+    function getQueryParameter(name) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(name);
+    }
+
+    // Set the group name to the page
+    const groupName = getQueryParameter('name');
+    if (groupName) {
+      document.getElementById('group-title').textContent = `Group: ${groupName}`;
+    } else {
+      document.getElementById('group-title').textContent = 'No group name provided';
+    }
+
+    function redirectToMeeting() {
+      const meetingLink = document.getElementById('meeting-link').value;
+    
+      if (meetingLink.trim() === '') {
+        alert('Please enter a meeting link.');
+        return;
+      }
+    
+      if (!meetingLink.startsWith('https://zoom.us/')) {
+        alert('Please provide a valid Zoom meeting link.');
+        return;
+      }
+    
+      // Redirect to the Zoom meeting link
+      window.location.href = meetingLink;
+    }
+  </script>
+</body>
+
+</html>

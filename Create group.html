@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+  
+</head>
+<body>
+   <div id="back button">
+        <!-- Go Back Button -->
+        <button class="back-button" onclick="goBack()">Go Back</button>
+  </div>  
+       
+    <main>
+      <div class="both-sides-container">
+             
+         <!-- Create Group Page -->
+         <form id="create-group-form" action="/mainGroup" method="post">
+        <div id="create-group-page" class="page"> 
+        <h1>Create a Group</h1><br>
+        <label for="group-name" style="color:black">Group Name:</label><br>
+        <input type="text" id="group-name" placeholder="Enter group name"><br>
+        <label for="group-description" style="color:black">Group Description:</label><br>
+        <textarea id="group-description" placeholder="Enter group description"></textarea><br>
+        <button type="submit">Create Group</button>
+      
+        </div>
+</form>
+
+        <div class="right-side">
+        <img src="images/PUC-Logo.png" >
+
+        </div>
+        </div>
+
+    </main>
+  </div>
+
+  
+  <script>
+    function goBack() {
+        window.history.back();
+    }
+
+    function redirectToSecondPage() {
+        const groupName = document.getElementById('group-name').value;
+        if (groupName.trim() === '') {
+            alert('Please enter a group name!');
+            return;
+        }
+        window.location.href = `main-group-page.html?name=${encodeURIComponent(groupName)}`;
+    }
+</script>
+</body>
+</html>
+<style>
+   
+   body {
+        margin: 5px;
+        padding: 0;
+        font-family: 'Comfortaa', sans-serif; 
+        background-color:white;
+        
+      
+      }
+
+    
+      
+      /* Login Page Styling */
+      .login-container {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        width: 350px;
+        
+
+
+      }
+      
+      h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #2c7a7b;
+      }
+      
+      .input-group {
+        position: relative;
+        margin: 15px 0;
+      }
+      
+      .input-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      
+      button {
+        
+        background-color:#058899;
+        color: white;
+        padding: 10px 35px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: transform 0.2s ease, background-color 0.3s ease;
+      }
+
+
+      .back-button {
+        margin-bottom: 2em;
+        
+      }
+
+
+      button:hover {
+        background:#058899;
+      }
+      
+    /* Input Fields, Select, and Textarea */
+    input,
+    select,
+    textarea {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #058899;
+      font-size: 14px;
+      box-sizing: border-box;
+      
+    }
+
+    textarea {
+      height: 100px;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #058899;
+      outline: none;
+    }
+
+    .both-sides-container{
+      width: 80%;
+      height: 80vh;
+      margin: auto;
+      border-radius: 10px;
+      display: flex;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    form{
+      width: 50%;
+      height: 100%;
+      text-align: center;
+    }
+
+    .right-side{
+      width: 50%;
+      background-color:white;
+      border-top-right-radius: 10px;
+      border-top-right-radius: 10px;
+      text-align: center;
+    }
+    .right-side img{
+      width: 60%;
+      height: 60%;
+      position: relative;
+      top: 15%;
+    }
+  
+</style>

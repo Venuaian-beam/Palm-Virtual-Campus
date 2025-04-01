@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    
+  <!-- <form action="PAVCA.php" > -->
+ <!-- Dashboard Page -->
+ <div id="dashboard-page" class="page">
+    <div id="dashboard">
+      <header>
+        <img src="images/PUC-Logo.png" alt="Palm Virtual Campus Logo" class="logo">
+        <button id="menu-toggle" onclick="toggleSidebar()">☰</button>
+      </header>
+      <aside id="sidebar" class="sidebar">
+        <nav>
+          <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="https://elearning.palm.edu.gh/">Courses</a></li>
+            <li><a href="Live Chat.html">Live Chat</a></li>
+            <li><a href="https://osissip.osis.online/auth/login">SIP</a></li> 
+            <li><a href="https://cafeteria.palm.edu.gh/">Cafeteria Management</a></li>
+            <li><a href="https://calendar.google.com/calendar/">Calender</a></li> 
+            <li><a href="Create group.html">Create group</a></li>
+            <li><a href="https://palm.edu.gh/">Contact us</a></li>
+            <li><a href="/login">Log out</a></li>
+
+            
+          </form>
+
+
+          </ul>
+          
+        <!-- </form> -->
+        <!-- Go Back Button in Dashboard Page -->
+        </nav>
+      </aside>
+      <section id="content">
+        <h2>Welcome to Palm Virtual Campus !</h2>
+        <p>Palm Virtual Campus is designed to make online learning effective and engaging. 
+            We aim to bridge the gap between students and their academic success by providing seamless access to 
+            tutors, resources, and virtual classrooms.
+        </p>
+        
+
+        <b> <blockquote id="quote" style="color:black">
+            <!-- The daily quote will appear here -->
+           </blockquote></b>
+        
+            
+        </section>
+
+        <section id="content-images">
+          <div class="images">
+            <img src="images/learning.png" alt="Learn" ><br>
+            <label for="images">Learn</label> 
+          </div> 
+
+          <div class="images">
+            <img src="images/connect.png" alt="connect" ><br>
+            <label for="images">Connect</label>   
+          </div> 
+
+            <div class="images">
+              <img src="images/explore.png" alt="explore" ><br>
+              <label for="images">Explore</label>   
+            </div> 
+           
+            <div class="images">
+              <img src="images/grow.png" alt="grow" ><br>
+              <label for="images">Grow</label>   
+             </div>         
+           
+            <div class="images">
+              <img src="images/crown.png" alt="crown" ><br>
+              <label for="images">Crown</label>   
+           </div> 
+
+          </section>
+          
+          <div id="uses">
+          <section id="Content1">
+            <p>Palm Virtual campus provides you the experience of campus life even from the comfort of your homes and hostels.</p>
+            <p>This platform gives student the avenue to view their courses for the semester, view their SIP, view their account balance at the cafeteria and make orders to be delivered, take notes etc.</p>
+            <p>We understand that in tertiary education, group discussions are key for teaching and learning therefore PAVCA allows student and lecturers to create groups for students and organize classes for them . </p>
+            <p>Now the fun part, there is a live chat session for each group created so that students and lecturers can reach out to each other easily and faster even from the comfort of their hostel. </p>
+            
+          </section>
+
+          </div>
+
+        </div>
+    </div>
+    <div id="Contact-Forms">
+      <form id="contact-form">
+        <p>For further Info, send us an email</p>
+        <input type="text" id="name" name="Name" placeholder="Your name" required><br>
+        <input type="email" id="email" name="Email" placeholder="Your email" required><br>
+        <input type="tel" id="phone" name="Phone number" placeholder="Enter your number" value="+233 " required><br>
+        <textarea id="message" name="Message" placeholder="Send us a message" required></textarea><br>
+        <button type="button" onclick="handleContactForm()">Send</button><br><br>
+
+        <a href="https://wa.me/233242850220?text=Hello%20there%2C%20I%20have%20a%20question!">Send a whatsapp message
+
+      </form>
+    </div>
+    
+  </div>
+  <section id="Contact form">
+   
+  </section>
+
+  <script src="script.js"></script>
+   
+</body>
+</html>
+<style>
+  
+  body{
+   background-color: aqua; 
+  font-family: 'Comfortaa', sans-serif; 
+  }
+  /* Dashboard Page Styling */
+  #dashboard-page {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    background: #f1f1f1;
+    background-color: aqua;
+    background-size: cover;
+    padding: 30px;
+  }
+  
+
+  .images img{
+    width:80%;
+    border-radius: 100px;
+  }
+  .images{
+    text-align: center;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2c7a7b;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+  header img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  
+  #menu-toggle {
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* Sidebar Styling */
+  .sidebar {
+    display: none;
+    position: fixed;
+    right: 0;
+    top: -2;
+    background-color: #2c7a7b;
+    width: 250px;
+    height: 80%;
+    padding: 20px;
+    margin-right: 6vh;
+    border-radius: 5%;
+    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    margin: 20px 0;
+  }
+  
+  .sidebar ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .sidebar ul li a:hover {
+    color: #f1f1f1;
+  }
+  
+  /* Content */
+  #content, #Contact-Forms{
+    margin-top: 20px;
+    background-color: #ffffff;
+    background-size: cover;
+    padding: 20px;
+    border-radius: 10px;
+    width: inherit;
+    text-align: center;
+  }
+
+  #Contact-Forms{
+    width: 93%;
+    margin: auto;
+  }
+   /* Input Fields, Select, and Textarea */
+   input,
+   select,
+   textarea {
+     width: 30%;
+     padding: 10px;
+     margin: 10px 0;
+     border-radius: 8px;
+     border: 1px solid #058899;
+     font-size: 14px;
+     box-sizing: border-box;
+     
+  }
+
+
+   textarea {
+    height: 100px;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    border-color: #058899;
+    outline: none;
+  }
+
+  button {
+        
+    background-color:#058899;
+    color: white;
+    padding: 10px 35px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+  }
+
+  
+  button:hover {
+    background:#058899;
+  }
+  
+
+  
+  #uses{
+    margin-top: 20px;
+    background-color: #ffffff;
+    background-size: cover;
+    padding: 20px;
+    border-radius: 10px;
+    width: inherit;
+  }
+
+    
+  #content-images{
+    display: flex;
+    margin-top: 20px;
+    gap: 100px;
+
+  }
+
+  
+  .images {
+    border: none;
+    width: 15%;
+    
+  }
+  
+  /* Active Page Visibility */
+  .page {
+    display: none;
+  }
+  
+  .page.active {
+    display: block;
+  }
+
+</style>
+<script>
+
+ // Function to navigate between pages (login, profile, dashboard)
+function navigateTo(pageId) {
+  const pages = document.querySelectorAll('.page');
+  pages.forEach(page => {
+    page.classList.remove('active'); // Remove active class from all pages
+  });
+
+  const targetPage = document.getElementById(pageId);
+  targetPage.classList.add('active'); // Add active class to the target page
+}
+
+// Function to go back to the previous page
+function goBack(pageId) {
+  navigateTo(pageId);
+}
+
+// Toggle sidebar visibility in the dashboard
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  sidebar.style.display = sidebar.style.display === 'block' ? 'none' : 'block';
+}
+
+// Event listeners to handle form submissions
+document.addEventListener('DOMContentLoaded', function () {
+  // Initially show the dashboard page
+  navigateTo('dashboard-page');
+
+  // Daily quotes
+  const quotes = [
+    "The best way to predict the future is to create it.",
+    "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+    "Your limitation—it’s only your imagination.",
+    "The harder you work for something, the greater you’ll feel when you achieve it.",
+  ];
+
+  let quoteIndex = 0;
+
+  function updateDailyQuote() {
+    document.getElementById('quote').textContent = quotes[quoteIndex];
+    quoteIndex = (quoteIndex + 1) % quotes.length;
+  }
+
+  setInterval(updateDailyQuote, 10000); // Change quote every 10 seconds
+  updateDailyQuote();
+});
+
+function handleContactForm() {
+  // Get references to form fields
+  const nameField = document.getElementById('name');
+  const emailField = document.getElementById('email');
+  const phoneField = document.getElementById('phone');
+  const messageField = document.getElementById('message');
+
+  // Validate inputs
+  const name = nameField.value.trim();
+  const email = emailField.value.trim();
+  const phone = phoneField.value.trim();
+  const message = messageField.value.trim();
+
+  if (!name || !email || !message) {
+    alert('Please fill in all required fields.');
+    return;
+  }
+
+  // For demonstration, log the form data
+  console.log('Contact Form Submitted:', {
+    name,
+    email,
+    phone,
+    message,
+  });
+
+  // Simulate form submission success
+  alert('Thank you for your message! We will get back to you soon.');
+
+  // Clear the form fields
+  nameField.value = '';
+  emailField.value = '';
+  phoneField.value = '+233 '; // Reset to default value
+  messageField.value = '';
+}
+
+</script>

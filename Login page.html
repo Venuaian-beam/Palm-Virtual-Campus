@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+   
+</head>
+<body>
+        <!-- Login Page -->
+  <div id="login-page" class="page active">
+    <div class="login-container">
+      <img src="images/PUC-Logo.png" alt="Palm Virtual Campus Logo" class="logo">
+      <h1>Palm Virtual Campus</h1>
+      <form id="login-form" action="/submit" method="post">
+        <div class="input-group">
+          <input type="text" name="username" placeholder="Username" required />
+        </div>
+        <div class="input-group">
+          <input type="password" name="password" placeholder="Password" required />
+        </div>
+        <button type="submit">Login</button>
+      </form>
+    <br>
+      <button class="go-back" onclick="window.location.href='/profile'">Go to Profile</button>
+    </div>
+  </div>
+
+</body>
+
+</html>
+
+<style>
+
+     /* General Body Styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family:'Comfortaa', sans-serif; 
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+  
+  
+
+ 
+  
+  /* Login Page Styling */
+  .login-container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 350px;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #2c7a7b;
+  }
+  
+  .input-group {
+    position: relative;
+    margin: 15px 0;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background: #2c7a7b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background: #1e5658;
+  }
+  
+  .logo {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+  }
+</style>
+<script>
+     // Function to navigate between pages (login, profile, dashboard)
+function navigateTo(pageId) {
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(page => {
+      page.classList.remove('active'); // Remove active class from all pages
+    });
+  
+    const targetPage = document.getElementById(pageId);
+    targetPage.classList.add('active'); // Add active class to the target page
+  }
+  
+  // Function to go back to the previous page
+  function goBack(pageId) {
+    navigateTo(pageId);
+  }
+</script>

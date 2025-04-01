@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Palm Virtual Campus</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+
+
+
+</head>
+<body>
+       <!-- Profile Page -->
+  <div id="profile-page" class="page active">
+    <div class="profile-container">
+      <h2>Create Your Profile</h2>
+      <form action="/login" method="post">
+        <input type="text" name="firstName" placeholder="First Name" required />
+        <input type="text" name="lastName" placeholder="Last Name" required />
+        <input type="username" name="username" placeholder="Username" required />
+        <input type="password" name="password" placeholder="Password" required />
+        <input type="password" name="confirm password" placeholder="Confirm Password" required />
+        <input type="email" name="email" placeholder="Email Address" required />        
+        <textarea name="bio" placeholder="Tell us about yourself..." rows="4" required></textarea>
+        <button type="submit">Save Profile</button>
+      </form>
+    </div>
+  </div>
+</body>
+  
+</html>
+
+<style>
+    /* General Body Styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family:'Comfortaa', sans-serif; 
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+  
+
+ 
+  
+  /* Login Page Styling */
+  .login-container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 350px;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #2c7a7b;
+  }
+  
+  .input-group {
+    position: relative;
+    margin: 15px 0;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background: #2c7a7b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background: #1e5658;
+  }
+  
+  .logo {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+  }
+  
+  /* Profile Page Styling */
+  .profile-container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 450px;
+    border: 2px solid #2c7a7b;
+  }
+  
+  .profile-container input,
+  .profile-container textarea {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  button[type="submit"] {
+    width: 100%;
+    background: #2c7a7b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  button[type="submit"]:hover {
+    background: #1e5658;
+  }
+  
+  /* Dashboard Page Styling */
+  #dashboard-page {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: #f1f1f1;
+    padding: 30px;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2c7a7b;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  header img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  
+  #menu-toggle {
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* Sidebar Styling */
+  .sidebar {
+    display: none;
+    position: fixed;
+    right: 0;
+    top: 0;
+    background-color: #2c7a7b;
+    width: 250px;
+    height: 100%;
+    padding: 20px;
+    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    margin: 20px 0;
+  }
+  
+  .sidebar ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .sidebar ul li a:hover {
+    color: #f1f1f1;
+  }
+  
+  /* Content */
+  #content {
+    margin-top: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 800px;
+  }
+  
+  /* Active Page Visibility */
+  .page {
+    display: none;
+  }
+  
+  .page.active {
+    display: block;
+  }
+</style>
+
+<!-- <script>
+
+    // Function to navigate between pages (login, profile, dashboard)
+function navigateTo(pageId) {
+  const pages = document.querySelectorAll('.page');
+  pages.forEach(page => {
+    page.classList.remove('active'); // Remove active class from all pages
+  });
+
+  const targetPage = document.getElementById(pageId);
+  targetPage.classList.add('active'); // Add active class to the target page
+}
+
+// Function to go back to the previous page
+function goBack(pageId) {
+  navigateTo(pageId);
+}
+
+// Toggle sidebar visibility in the dashboard
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  sidebar.style.display = sidebar.style.display === 'block' ? 'none' : 'block';
+}
+
+// Event listeners to handle form submissions
+document.addEventListener('DOMContentLoaded', function () {
+  // Initially show the profile page
+  navigateTo('profile-page');
+
+  // Handle form submission on the profile page
+  document.getElementById('profile-page').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission
+    // Proceed to profile page
+    navigateTo('login-page');
+  });
+
+  // Handle form submission on the login page
+  document.getElementById('login-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Here, you can add your profile data saving logic if needed
+
+    // After saving profile, navigate to the dashboard page
+    navigateTo('/home');
+  });
+});
+
+
+
+</script> -->
